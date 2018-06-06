@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="ko">
 <head>
@@ -5,16 +6,24 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Youn lab</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 </head>
 <body>
-  <h1>Post List</h1>
-  <p>전체 포스트 목록입니다.</p>
+
+<div class="container">
+<div class="row">
     {% for post in posts %}
-    <div>
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.text }}</p>
-        <p>{{ post.created_date }}</p>
+    <div class="card col-4 p-4 m-2">
+        <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">{{ post.text }}</p>
+            <p>{{ post.created_date }}</p>
+            <a href="" class="btn btn-primary">Read Post</a>
+        </div>
     </div>
     {% endfor %}
+</div>
+
+</div>
 </body>
 </html>
