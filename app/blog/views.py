@@ -18,3 +18,9 @@ def post_list(request):
     # 3번째 인수: 템플릿을 렌더링 할 때 사용할 객체 모음
     return render(request,'blog/post_list.html', context)
 
+def post_detail(request, post_id):
+    post = Post.objects.get(id=post_id)
+    context = {
+        'post': post,
+    }
+    return render(request,'blog/post_detail.html', context)
