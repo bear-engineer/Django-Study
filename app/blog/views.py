@@ -2,5 +2,9 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
+from django.template.loader import render_to_string
+
+
 def post_list(request):
-    return HttpResponse('Hello World')
+    html = render_to_string('blog/post_list.html')
+    return HttpResponse(html)
